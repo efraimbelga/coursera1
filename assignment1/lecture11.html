@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Assignment1</title>
+	<script src="angular.min.js"></script>
+	<script src="lecture11.js"></script>
+</head>
+<body>
+
+	<div ng-controller="MsgController">
+		<h1>Expression and Interpolation</h1>
+		<p>The message is: </p>
+		<p>{{name}} is my name</p>
+		<p>{{sayMessage()}}</p>
+		<div>
+			<button ng-click="feedme()">Feed me</button><br>
+			<img ng-src="images/apple_{{stateofbeing}}.jpg">
+		</div>
+	</div>
+</body>
+</html>
