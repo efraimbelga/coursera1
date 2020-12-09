@@ -1,49 +1,35 @@
 (function(){
 	'use strict';
 
-	angular.module('myfirstApp', [])
+	angular.module('assignmentApp', [])
 
-	.controller('MyfirstController', function($scope){
-		$scope.name="Efraim";
-		$scope.sayHello = function(){
-			return "Hello";
-		}
-	})
+	.controller('assignmentController', assignmentController);
 
-	.controller('NameCalculatorContoller', function($scope){
-		$scope.name = "";
-		$scope.totalValue = 0;
-		$scope.displayNumeric = function(){
-			var totalNameValue = calculateNumeric($scope.name);
-			$scope.totalValue = totalNameValue;
+	assignmentController.$inject = ['$scope'];
+	function assignmentController($scope){
+		$scope.meals = "";
+		$scope.stateofbeing = "";
+
+
+		$scope.checkMeal = function(){
+			$scope.stateofbeing = getresult($scope.meals);
 		};
 
+		function getresult(string){
+			var totalMeal = 0;
+			var res = string.split(",");
+			var message = "";
 
-		function calculateNumeric(string){
-			var totalStringValue = 0;
+			if(res.length > 0){
+
+			}else{
+				message = ""
+			}
 			for(var i= 0; i<string.length; i++){
 				totalStringValue += string.charCodeAt(i);
 			}
-			return totalStringValue;
+			return message;
 		}
-	})
-
-	.controller('DIController', DIController);
-
-	function DIController($scope, $filter, $injector){
-		$scope.name = 'Kiams';
-
-		$scope.upper = function(){
-			var upCase = $filter('uppercase');
-			$scope.name = upCase($scope.name)
-		}
-
-		console.log($injector.annotate(DIController))
-
 	}
-
-	function AnnotateMe(name, job, blah){
-		return "blah!";
-	}
-
+	
 })();

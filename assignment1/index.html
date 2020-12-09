@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html ng-app="myfirstApp">
+<html >
 <head>
 	<title>Assignment1</title>
 	<script src="angular.min.js"></script>
 	<script src="app.js"></script>
 </head>
-<body>
+<body ng-app="assignmentApp">
 	
-	<div ng-controller="MyfirstController">
+	<div ng-controller="assignmentController">
 		<h1>Coursera Assignment1</h1>
-		<input type="text" ng-model="name"><button type="button">Check If Too Much</button>
-		<p>My name is {{name}}</p>
-		{{sayHello()}}
-	</div>
-	<hr>
-
-	<div ng-controller="NameCalculatorContoller">
-		<h1>Name Calulator</h1>
-		Your name: <input type="text" name="" ng-model="name" ng-keyup="displayNumeric()">
-		<p>The numeric value of your name is {{totalValue}}</p>
-	</div>
-	<hr>
-
-	<div ng-controller="DIController">
-		<h1>Name Calulator</h1>
-		Your name: <input type="text" name="" ng-model="name" ng-blur="upper();">
-		
+		<input type="text" ng-model="meals"><button type="button" ng-click="checkMeal()">Check If Too Much</button>
+		{{sayMessage()}}
 	</div>
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Assignment1</title>
+	<script src="angular.min.js"></script>
+	<script src="lecture11.js"></script>
+</head>
+<body>
+
+	<div ng-controller="MsgController">
+		<h1>Expression and Interpolation</h1>
+		<p>The message is: </p>
+		<p>{{name}} is my name</p>
+		<p>{{sayMessage()}}</p>
+		<div>
+			<button ng-click="feedme()">Feed me</button><br>
+			<img ng-src="images/apple_{{stateofbeing}}.jpg">
+		</div>
+	</div>
+</body>
+</html> -->
