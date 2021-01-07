@@ -11,17 +11,10 @@ MenuCategoriesController.$inject = ['MenuCategoriesService'];
 function MenuCategoriesController(MenuCategoriesService) {
   var menu = this;
 
-  // var promise = MenuCategoriesService.getMenuCategories();
-  // promise.then(function (response) {
-  //   menu.categories = response.data;
-  // })
-  // .catch(function (error) {
-  //   console.log("Something went terribly wrong.");
-  // });
 
   menu.searchmenu = function () {
      menu.errormessage = "";
-    var promise = MenuCategoriesService.getMenuForCategory(menu.menukey);
+    var promise = MenuCategoriesService.getMenuForCategory();
     promise.then(function (response) {
         var categories = response.data 
         var foundmenu = [];
@@ -37,7 +30,7 @@ function MenuCategoriesController(MenuCategoriesService) {
             foundmenu.push(item);
           }            
         }
-        console.log()
+
         menu.categories = foundmenu;
         if(foundmenu.length <= 0){
             menu.errormessage = "Nothing Found"
@@ -64,16 +57,7 @@ MenuCategoriesService.$inject = ['$http', 'ApiBasePath'];
 function MenuCategoriesService($http, ApiBasePath) {
   var service = this;
 
-  // service.getMenuCategories = function () {
-  //   var response = $http({
-  //     method: "GET",
-  //     url: (ApiBasePath + "/categories.json")
-  //   });
-
-  //   return response;
-  // };
-
-  service.getMenuForCategory = function (shortName) {
+  service.getMenuForCategory = function () {
     var menus = $http({
         method: "GET",
         url: (ApiBasePath + "/categories.json")
