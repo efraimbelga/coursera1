@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="httpserviceApp">
+<head>
+	<title>Lecture 25 | Ajax with $http Service</title>
+	<script src="angular.min.js"></script>
+	<script src="lecture25.js"></script>
+</head>
+<body>
+	<h1>Ajax with $http Service</h1>
+	<div ng-controller = 'MenuCategoriesController as menu'>
+		<h3>List of Menu Categories</h3>
+		<ul>
+			<li ng-repeat="categories in menu.categories">
+				({{ category.short_name }})
+				{{ category.name }}
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

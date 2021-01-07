@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='MenuCategoriesApp'>
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+<body>
+   <div class="container" ng-controller='MenuCategoriesController as menu'>
+      <h1>Narrow Down Your Chinese Menu Choice</h1>
+  
+      <div class="form-group">
+        <input type="text" placeholder="search term" class="form-control" ng-model="menu.menukey">
+      </div>
+      <div class="form-group narrow-button">
+        <button class="btn btn-primary" ng-click="menu.searchmenu();">Narrow It Down For Me!</button>
+      </div>
+      <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Menu Name</th>
+              <th>Short Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="category in menu.categories">
+              <th>
+                <button class="btn btn-info btn-xs" ng-click="menu.removeItem($index);">Don't want this!</button>
+              </th>
+              <td>{{ category.name }}</td>
+              <td>{{ category.short_name }}</td>
+          </tr>
+          </tbody>
+      </table>
+      <p>{{ menu.errormessage }}</p>
+  </div>
+
+</body>
+</html>
+
