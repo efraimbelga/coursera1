@@ -16,15 +16,18 @@ function MenuCategoriesController(MenuCategoriesService) {
      menu.errormessage = "";
     var promise = MenuCategoriesService.getMenuForCategory();
     promise.then(function (response) {
-        var categories = response.data 
+        var categories = response.data.menu_items 
+        
         var foundmenu = [];
         for(var i = 0; i < categories.length; i++)
         {
           var str = angular.lowercase(categories[i].name);
+          var desc = angular.lowercase(categories[i].description);
           var key = angular.lowercase(menu.menukey)
-          if(str.search(key) >= 0){
+          if(str.search(key) >= 0 || desc.search(key) >= 0){
             var item = {
               name: categories[i].name,
+              description: categories[i].description,
               short_name: categories[i].short_name
             };
             foundmenu.push(item);
@@ -60,7 +63,7 @@ function MenuCategoriesService($http, ApiBasePath) {
   service.getMenuForCategory = function () {
     var menus = $http({
         method: "GET",
-        url: (ApiBasePath + "/categories.json")
+        url: (ApiBasePath + "/menu_items.json")
     });
 
     return menus;

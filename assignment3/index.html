@@ -23,6 +23,7 @@
             <tr>
               <th></th>
               <th>Menu Name</th>
+              <th>Description</th>
               <th>Short Name</th>
             </tr>
           </thead>
@@ -32,6 +33,7 @@
                 <button class="btn btn-info btn-xs" ng-click="menu.removeItem($index);">Don't want this!</button>
               </th>
               <td>{{ category.name }}</td>
+              <td>{{ category.description }}</td>
               <td>{{ category.short_name }}</td>
           </tr>
           </tbody>
